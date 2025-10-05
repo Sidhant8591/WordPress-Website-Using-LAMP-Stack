@@ -46,7 +46,7 @@ git clone
 https://github.com/Sidhant8591/WordPress-Website-Using-LAMP-Stack.git
 ```
 ```bash
-cd your-repo-name
+cd WordPress-Website-Using-LAMP-Stack
 ```
  Or download the script directly
 ```bash
