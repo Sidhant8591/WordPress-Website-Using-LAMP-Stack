@@ -71,7 +71,9 @@ CREATE DATABASE wordpress_db;
 #Grant Privileges to DB user
 
 #####################################################################################################
-# GRANT ALL PRIVILEGES ON wordpress_db.* TO 'wordpress_user'@'localhost' IDENTIFIED BY 'PASSWORD';  #
+# CREATE DATABASE wordpress_db;                                                                     #
+# CREATE USER 'wordpress_user'@'localhost' IDENTIFIED BY 'MyStrongPass123!';                        #
+# GRANT ALL PRIVILEGES ON wordpress_db.* TO 'wordpress_user'@'localhost';                           #
 # FLUSH PRIVILEGES;                                                                                 #
 # exit;                                                                                             #
 #####################################################################################################
@@ -89,7 +91,7 @@ sudo nano wp-config.php
 ########################################
 # define('DB_NAME', 'wordpress_db');   #
 # define('DB_USER', 'wordpress_user'); #
-# define('DB_PASSWORD', 'PASSWORD');   #
+# define('DB_PASSWORD', 'MyStrongPass123!');   #
 # define('DB_HOST', 'localhost');      #
 # define('DB_CHARSET', 'utf8');        #
 ########################################
