@@ -67,7 +67,7 @@ sudo ./WordPress-lamp.sh
 ```
 or
 ```bash
-bash wordPress-Lamp.sh
+sudo bash wordPress-Lamp.sh
 ```
 The script will now install Apache, MySQL, and PHP. **Pay close
 attention to the terminal**, as you will be prompted for input during
@@ -131,15 +131,9 @@ user for WordPress. **Remember to replace MyStrongPass123! with your own
 secure password.**
 ```bash
 CREATE DATABASE wordpress_db;
-
-CREATE USER \'wordpress_user\'@\'localhost\' IDENTIFIED BY
-\'MyStrongPass123!\';
-
-GRANT ALL PRIVILEGES ON wordpress_db.\* TO
-\'wordpress_user\'@\'localhost\';
-
+CREATE USER 'wordpress_user'@'localhost' IDENTIFIED BY 'MyStrongPass123!';
+GRANT ALL PRIVILEGES ON wordpress_db.* TO 'wordpress_user'@'localhost';
 FLUSH PRIVILEGES;
-
 exit;
 ```
 **3. Configure wp-config.php**
@@ -155,14 +149,10 @@ sudo nano wp-config.php
 ```
 Update the database details with the information from the previous step:
 ```bash
-define(\'DB_NAME\', \'wordpress_db\');
-
-define(\'DB_USER\', \'wordpress_user\');
-
-define(\'DB_PASSWORD\', \'MyStrongPass123!\'); // \<\-- Use your new
-password here
-
-define(\'DB_HOST\', \'localhost\');
+define('DB_NAME', 'wordpress_db');
+define('DB_USER', 'wordpress_user');
+define('DB_PASSWORD', 'MyStrongPass123!'); // <-- Use your new password here
+define('DB_HOST', 'localhost');
 ```
 Save and close the file (CTRL+X, then Y, then Enter).
 
@@ -175,21 +165,18 @@ sudo nano /etc/apache2/sites-available/your-domain.com.conf
 ```
 Add the following configuration, replacing your-domain.com with your
 actual domain name.
+
 ```bash
-\<VirtualHost \*:80\>
+<VirtualHost *:80>
+    ServerName your-domain.com
+    ServerAlias [www.your-domain.com](https://www.your-domain.com)
+    DocumentRoot /var/www/html/wordpress
 
-ServerName your-domain.com
-
-ServerAlias \[www.your-domain.com\](https://www.your-domain.com)
-
-DocumentRoot /var/www/html/wordpress
-
-ErrorLog \${APACHE_LOG_DIR}/error.log
-
-CustomLog \${APACHE_LOG_DIR}/access.log combined
-
-\</VirtualHost\>
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
 ```
+
 Enable the new site and restart Apache:
 ```bash
 sudo a2ensite your-domain.com.conf
