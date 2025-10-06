@@ -73,7 +73,31 @@ The script will now install Apache, MySQL, and PHP. **Pay close
 attention to the terminal**, as you will be prompted for input during
 the MySQL secure installation.
 
-**⚠️ Important: Manual Configuration Required!**
+**Step 4: Verify PHP Installation (Optional but Recommended)**
+
+After the script finishes, it's good practice to verify that PHP is working correctly with Apache.
+
+1.  Create a PHP info file:
+```bash
+sudo nano /var/www/html/info.php
+```
+2.  Add the following content to the file:
+```bash
+<?php
+phpinfo();
+?>
+```
+Save and close the file (CTRL+X, Y, Enter).
+    
+3.  **View in your browser:**
+   Navigate to http://your\_server\_ip/info.php. You should see a page with detailed information about your PHP installation.
+
+4.  Important Security Note: This file reveals sensitive information about your server. It is crucial to remove it after testing.
+```bash
+   sudo rm /var/www/html/info.php
+```
+   
+### ⚠️ Important: Manual Configuration Required!
 
 This script automates the installation of the software, but for security
 and site-specific setup, you **must** complete the following steps
