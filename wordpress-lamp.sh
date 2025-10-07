@@ -89,11 +89,11 @@ sudo nano wp-config.php
 
 #The name of the database for WordPress, database username,database password,hostname,Charset as follows
 ########################################
-# define('DB_NAME', 'wordpress_db');   #
-# define('DB_USER', 'wordpress_user'); #
+# define('DB_NAME', 'wordpress_db');           #
+# define('DB_USER', 'wordpress_user');         #
 # define('DB_PASSWORD', 'MyStrongPass123!');   #
-# define('DB_HOST', 'localhost');      #
-# define('DB_CHARSET', 'utf8');        #
+# define('DB_HOST', 'localhost');              #
+# define('DB_CHARSET', 'utf8');                #
 ########################################
 
 #Save and exit the file
