@@ -1,4 +1,5 @@
-##Install the Apache web server
+#Install the Apache web server
+
 sudo apt-get install apache2 -y
 
 #Start and enable Apache to start automatically upon server reboot
@@ -8,7 +9,10 @@ sudo systemctl enable apache2
 #Check Apache server is up and running
 systemctl status apache2
 
-##Install the MySQL Database server
+
+#Install the MySQL Database server
+
+
 sudo apt-get install mysql-server -y
 
 #In order to improve the security of your MySQL server run the mysql_secure_installation script
@@ -18,7 +22,10 @@ sudo mysql_secure_installation
 sudo systemctl start mysql
 sudo systemctl enable mysql
 
-##Install PHP
+
+#Install PHP
+
+
 #Add the php7 ppa
 sudo add-apt-repository ppa:ondrej/php
 
@@ -51,7 +58,10 @@ sudo systemctl restart apache2
 
 #Visit page: http://your_server_ip_address/info.php or http://localhost/info.php
 
-##Install WordPress
+
+#Install WordPress
+
+
 #download and place the WordPress in the default web server document root directory (/var/www/html)
 cd /var/www/html
 sudo wget -c http://wordpress.org/latest.tar.gz
@@ -70,6 +80,7 @@ CREATE DATABASE wordpress_db;
 
 #Grant Privileges to DB user
 
+
 #####################################################################################################
 # CREATE DATABASE wordpress_db;                                                                     #
 # CREATE USER 'wordpress_user'@'localhost' IDENTIFIED BY 'MyStrongPass123!';                        #
@@ -77,6 +88,8 @@ CREATE DATABASE wordpress_db;
 # FLUSH PRIVILEGES;                                                                                 #
 # exit;                                                                                             #
 #####################################################################################################
+
+
 
 #Rename the sample configuration file to wp-config.php
 cd /var/www/html/wordpress
@@ -87,16 +100,19 @@ sudo nano wp-config.php
 
 #Update the database settings with database details
 
+
 #The name of the database for WordPress, database username,database password,hostname,Charset as follows
-########################################
+################################################
 # define('DB_NAME', 'wordpress_db');           #
 # define('DB_USER', 'wordpress_user');         #
 # define('DB_PASSWORD', 'MyStrongPass123!');   #
 # define('DB_HOST', 'localhost');              #
 # define('DB_CHARSET', 'utf8');                #
-########################################
+################################################
 
 #Save and exit the file
+
+
 
 #Restart your Apache and MySQL server
 sudo systemctl restart apache2
