@@ -142,9 +142,7 @@ The script downloads WordPress into /var/www/html/wordpress. Navigate to
 this directory and edit the configuration file.
 ```bash
 cd /var/www/html/wordpress
-
 sudo mv wp-config-sample.php wp-config.php
-
 sudo nano wp-config.php
 ```
 Update the database details with the information from the previous step:
@@ -180,7 +178,6 @@ actual domain name.
 Enable the new site and restart Apache:
 ```bash
 sudo a2ensite your-domain.com.conf
-
 sudo systemctl restart apache2
 ````
 **► Finalizing the Installation**
